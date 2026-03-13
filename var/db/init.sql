@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS ec_api_test;
+GRANT ALL PRIVILEGES ON ec_api_test.* TO 'ec_api_user'@'%';
+FLUSH PRIVILEGES;

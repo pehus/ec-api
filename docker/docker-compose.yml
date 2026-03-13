@@ -1,0 +1,31 @@
+services:
+    php:
+        build:
+            context: ..
+            dockerfile: docker/Dockerfile
+        container_name: ec_api_php
+        working_dir: /var/www/html
+        volumes:
+            - ../:/var/www/html
+        ports:
+            - "8000:8000"
+        depends_on:
+            - db
+        command: php -S 0.0.0.0:8000 -t public
+
+    db:
+        image: mariadb:11.4
+        container_name: ec_api_db
+        environment:
+            MARIADB_DATABASE: ec_api
+            MARIADB_USER: ec_api_user
+            MARIADB_PASSWORD: secret
+            MARIADB_ROOT_PASSWORD: root
+        ports:
+            - "3306:3306"
+        volumes:
+            - mariadb_data:/var/lib/mysql
+            - ../var/db:/docker-entrypoint-initdb.d
+
+volumes:
+    mariadb_data:

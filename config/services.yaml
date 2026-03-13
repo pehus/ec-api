@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+
+    App\Provider\OpenStreetMapLocationProvider:
+        arguments:
+            $httpClient: '@openstreetmap.client'
+
+    App\Interface\LocationProviderInterface:
+        alias: App\Provider\OpenStreetMapLocationProvider

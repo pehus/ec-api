@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="EC API">
+    <description>Code style rules for EC API project</description>
+
+    <rule ref="PSR12"/>
+
+    <arg name="colors"/>
+    <arg value="p"/>
+    <arg name="extensions" value="php"/>
+
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>var/*</exclude-pattern>
+</ruleset>
