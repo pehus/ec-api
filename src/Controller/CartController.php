@@ -92,7 +92,7 @@ class CartController extends AbstractController
 
         $cart = $this->cartService->removeProduct(
             $dto->cartId,
-            (int) $dto->sku,
+            $dto->sku,
             $dto->quantity
         );
 
